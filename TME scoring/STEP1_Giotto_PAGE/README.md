@@ -65,8 +65,8 @@ First read the gene set files to be used for annotation.
 cellMaker <- read.table("../demo_data/PAGE_genesets.txt" , sep="\t" , header= T )
 ```
 
-Next, load a file specifying the colour of each Celltype in the Plot.
-The celltype names in CelltypeCol.txt must match those in PAGE_genesets.
+Next, load a file specifying the color of each cell type in the plot.
+The cell type names in CelltypeCol.txt should be same as those in PAGE_genesets.txt.
 
 ```R:Giotto_analysis.r
 typeCol <- read.table("../demo_data/CelltypeCol.txt" , sep="\t" , header= T )
@@ -159,7 +159,7 @@ spatCellPlot(
 
 ![PAGE entrichment score](./fig/PAGEresult.png)
 
-The Cell type with the highest scoring category in each spot is adopted and annotated.
+The cell type with the highest scoring category in each spot is adopted and annotated.
 
 ``` R:Giotto_analysis.r
 Annot <- as.data.frame(GiottoOBJ@spatial_enrichment$PAGE)
