@@ -16,10 +16,10 @@ Installation old version of SPATA2.
 devtools::install_github(repo = "theMILOlab/SPATA2" , ref = "v1.0.0")
 ```
 
-## 2. Input file
+## 2. Input files
 
-1. clustered Seurat OBJ.(like STEP2 or other)
-2. PAGE score matix file (output of STEP1).
+1. Seurat obj (from STEP 2 or others; spots should be clustered).
+2. PAGE score matix file (output of STEP 1).
 
 ## 3. Analysis code
 
@@ -229,7 +229,7 @@ span =0.2 ,overlap = 5 , pw= 8,ph= 8,region_length = NULL,Annotation = NULL)
 
 
 
-## 5. Output file
+## 5. Output files
 
 ### Plot
 
