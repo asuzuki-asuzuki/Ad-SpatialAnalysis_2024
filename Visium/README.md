@@ -12,6 +12,7 @@ The following R packages are required.
 - [Visium_Seurat.R](./Visium_Seurat.R): basic analysis (dimentional reduction, clustering, etc.) by Seurat.
 
 ### Visualization
+- [Visium_Seurat_Violin.R](./Visium_Seurat_Violin.R): drawing violin plots of marker genes for each cluster by Seurat.
 - [Visium_Seurat_ROI.R](./Visium_Seurat_ROI.R): drawing spatial plots of marker genes for each ROI by Seurat.
 
 ### Merging the data of multiple serial sections 
