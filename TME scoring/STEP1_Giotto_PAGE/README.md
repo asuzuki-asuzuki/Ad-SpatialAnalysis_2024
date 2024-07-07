@@ -1,22 +1,22 @@
-# Giotto Annotation
+# Giotto scoring and annotation
 
-　This step doing PAGE Annotations
+　This step for PAGE scoring and annotation for each spot
 
-## 1.required package
+## 1. Required packages
 
 The following R packages are required for this STEP: Note that Giotto only works with v1.x.x.
 
-1. Giotto （ver 1）
+1. giotto (version 1)
 2. patchwork
 3. ggplot2
 
-## 2.Input file
+## 2. Input file
 
-1. Spaceranger output.
-2. Geneset file.
-3. Colour list.
+1. Space Ranger output.
+2. Gene-set file.
+3. Color list.
 
-The Geneset file to be loaded is a tab-delimited file containing the gene name and celltype as shown below.
+The Gene-set file is a tab-delimited file containing the gene name and cell type as below.
 
 ``` txt:../demo_data/PAGE_genesets.txt
 Gene    Celltype
@@ -27,7 +27,7 @@ JCHAIN  Immune
 ....
 ```
 
-The Colour file to be loaded is a tab-delimited file containing cell types and colour codes as follows.The celltype names in "CelltypeCol.txt" must match those in PAGE_genesets.
+The Color file is a tab-delimited file containing the cell type and color codes as below. The cell type names in this file should be same as those in the Gene-set file.
 
 ``` txt:../demo_data/CelltypeCol.txt
 CellType            col
@@ -37,7 +37,7 @@ Invasive            "#d62728"
 ....
 ```
 
-## 3.Analysis cide
+## 3. Analysis code
 
 ``` R:Giotto_analysis.r
 library(Giotto)
@@ -45,7 +45,7 @@ library(patchwork)
 library(ggplot2)
 set.seed(1234)
 
-SRanger <-"../demo_data/Spaceranger/" # path to space ranger output 
+SRanger <-"../demo_data/Spaceranger/" # path to Space Ranger output 
 Dir     <-"test" # output dir name
 Pname   <-"test" # sample name
 ```
@@ -91,7 +91,7 @@ GiottoOBJ = createGiottoVisiumObject(
             )
 ```
 
-Filtering of spot and normalisation of expression.
+Filtering of spot and normalization of expression data.
 
 ```　R:Giotto_analysis.r
 metadata = pDataDT(GiottoOBJ)
@@ -107,7 +107,7 @@ GiottoOBJ <- filterGiotto(gobject = GiottoOBJ,
                               verbose = T
                          )
 
-## normalize
+## Normalization
 GiottoOBJ <- normalizeGiotto(
                 gobject = GiottoOBJ, 
                 scalefactor = 10000, verbose = T
@@ -159,7 +159,7 @@ spatCellPlot(
 
 ![PAGE entrichment score](./fig/PAGEresult.png)
 
-The CellType with the highest scoring category in each spot is adopted and annotated.
+The Cell type with the highest scoring category in each spot is adopted and annotated.
 
 ``` R:Giotto_analysis.r
 Annot <- as.data.frame(GiottoOBJ@spatial_enrichment$PAGE)
@@ -195,10 +195,10 @@ write.table(
 
 ![Annotation PAGE Max score](./fig/spatPlot2D.png)
 
-## 4.Output file
+## 4. Output file
 
-`*_PAGEscore.txt` file is the score calculated with the ID and PAGE of each SPOT as follows
-values calculated in PAGE and the adopted Annotation Cell type are listed in tab-delimited format as follows.
+`*_PAGEscore.txt` file is the score calculated with the ID and PAGE of each spot as follows
+values calculated in PAGE and the adopted annotation cell type are listed in tab-delimited format as below.
 
 This file is used in the subsequent STEPs.
 
