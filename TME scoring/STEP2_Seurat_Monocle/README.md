@@ -1,6 +1,6 @@
-# STEP2 Clustering analysis by Seurat & trajectory analysis by Monocle3.
+# STEP 2. Clustering analysis by Seurat & trajectory analysis by Monocle3.
 
-## 1. Required package
+## 1. Required packages
 
 1. Seurat (v4)
 2. monocle3 (v1)
@@ -35,10 +35,10 @@ library(magrittr)
 set.seed(1234)
 ```
 
-Creast Seurat OBJ , normalize , Clustering data.
+Creast Seurat obj, normalization and clustering.
 
 ``` R:Seurat_Moncole.R
-#Seurat
+# Seurat
 lung <- Load10X_Spatial(data.dir = "../demo_data/Spaceranger/")
 lung <- subset(lung, subset = nFeature_Spatial > 0)
 lung <- SCTransform(lung, assay = "Spatial", verbose = FALSE) %>%
@@ -47,7 +47,7 @@ lung <- SCTransform(lung, assay = "Spatial", verbose = FALSE) %>%
             FindClusters() %>%
             RunUMAP(dims = 1:30)
 
-# chehck Clsuter result
+# Check clsutering result
 p1 <- SpatialDimPlot(lung, label = TRUE, label.size = 3)
 p2 <- DimPlot(lung, reduction = "umap", label = TRUE)
 p1 + p2
@@ -63,8 +63,7 @@ cds <- cluster_cells(cds)
 cds <- learn_graph(cds)
 ```
 
-From Seurat clustering results and gene expression.
-Determine the clustering to be root.
+From Seurat clustering results and gene expression patterns, determine a root cluster of the trajectory.
 Here, cluster 9 was used as the root cluster and the psudotime was calculated by obtaining the spot of the centre of gravity of cluster 9 as the root.
 
 ``` R:Seurat_Moncole.R
@@ -97,11 +96,11 @@ p3+p4
 <img src="./fig/Mocole_result.png" width="50%" >
 </div>
 
-we estimated 2 pathways, belowe.
+We estimated 2 paths as below.
 
 PATH1: 9->6->3
 
 PATH2: 9->10
 
-these path use STEP3-1 SPTAT2 analysis.
+These path is used in STEP 3-1 SPATA2 analysis.
 
