@@ -11,6 +11,9 @@ The following R packages are required.
 ### Basic analysis of Visium data  
 - [Visium_Seurat.R](./Visium_Seurat.R): basic analysis (dimentional reduction, clustering, etc.) by Seurat.
 
+### Visualization
+- [Visium_Seurat_ROI.R](./Visium_Seurat_ROI.R): drawing spatial plots of Visium data for each ROI by Seurat.
+
 ### Merging the data of multiple serial sections 
 - [FFPE_Merge_Seurat.R](./FFPE_Merge_Seurat.R): merging multiple Visium data by Seurat.
 
