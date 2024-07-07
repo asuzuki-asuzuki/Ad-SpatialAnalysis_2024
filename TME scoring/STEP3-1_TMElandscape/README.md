@@ -1,29 +1,29 @@
-# STEP3-1: Evaluation of TME changes for IA cases
+# STEP 3-1. Evaluation of TME changes for IA cases
 
-To evaluate changes in TME scores for IA cases, the scores were plotted along with the transcriptome trajectories by SATA
+To evaluate changes in TME scores for IA cases, the scores were plotted along with the transcriptome trajectories by SPATA.
 
-## 1.required package
+## 1. Required packages
 1. tidyverse
 2. Seurat (v4)
 3. ggplot2
 4. patchwork
-5. SPATA2(0.1.0 or 1.0.0)
+5. SPATA2 (0.1.0 or 1.0.0)
 
 
-Installation old vaerion of SPATA2.
+Installation old version of SPATA2.
 
 ``` R
 devtools::install_github(repo = "theMILOlab/SPATA2" , ref = "v1.0.0")
 ```
 
-## 2.Input file
+## 2. Input file
 
 1. clustered Seurat OBJ.(like STEP2 or other)
 2. PAGE score matix file (output of STEP1).
 
-## 3.Analysis code
+## 3. Analysis code
 
-load packages.
+Load packages.
 
 ``` R:SPATA.r
 library(tidyverse)
@@ -34,13 +34,13 @@ library(SPATA2)
 set.seed(1234)
 ```
 
-load custom functions.
+Load custom functions.
 
 ``` R:SPATA.r
 source("./Function-PlotTrraject.R")
 ```
 
-load Seurat OBJ and result of STEP1 PAGE analysis.
+Load Seurat obj and results of STEP 1 PAGE analysis.
 
 ``` R:SPATA.r
 obj <- "../demo_data/lung_visium.rds"
@@ -48,19 +48,19 @@ project = "LUAD_No3B"  # name
 PAGE_res <- "../STEP1_Giotto_PAGE/test_PAGEscore.txt"
 SeuratOBJ <- readRDS(obj)
 
-# Read PAGE Result
+# Read PAGE results
 PAGE_inf <- read.delim( PAGE_res  ,header = T,stringsAsFactors=F ,sep="\t")
 rownames(PAGE_inf) <- PAGE_inf$cell_ID
 PAGE_inf <- PAGE_inf[ , c(-1,-2) ]
 
-# Read Color Info
+# Read color info
 typeCol <- read.table("../demo_data//CelltypeCol.txt" , sep="\t" , header= T )
 col_names <-  typeCol$col
 names(col_names) <-  typeCol$CellType
 Annotation<- factor(typeCol$CellType ,levels=typeCol$CellType)
 ```
 
-Assign PAGE TME scores and annotation results to Seurat OBJ metadata.
+Assign PAGE TME scores and annotation results to Seurat obj metadata.
 
 ``` R:SPATA.r
 bc <- intersect( rownames(PAGE_inf) , rownames(SeuratOBJ@meta.data))
@@ -78,7 +78,7 @@ Seurat obj is converted to SPATA obj.
 Seurat also rotates the coordinates because the angle of the image is different from that of loupe and other objects.
 
 ``` R:SPATA.r
-# Convert SPATA OBJ
+# Convert SPATA obj
 spata_obj <- transformSeuratToSpata( 
                 SeuratOBJ, 
                 project,
@@ -91,7 +91,7 @@ spata_obj <- adjustDirectoryInstructions(
                 directory_new = "spata-obj-test.RDS" 
             )
 
-#Optional :  rotates the coordinates
+# Optional :  rotates the coordinates
 coord_inf <- spata_obj@coordinates[[project]][,c(3,4)]
 new_coord_inf <- t(apply( coord_inf  , 1 , Fun_lotate,do = -180  ))
 new_coord_inf <- t(apply(coord_inf ,1,  function(x){ return(x* c(1,-1))})) # y軸対象変換
@@ -113,8 +113,8 @@ for ( i in all_clus  ) {
 names(center_list) <- all_clus
 ```
 
-Specify the Trajectory manually in SPATA2.
-The order of the Trajectory specifies the spot of the centre of gravity of each cluster in the order of clusters inferred from the monocole3 results.
+Specify the trajectory in SPATA2 manually.
+The order of the trajectory specifies the spot of the centre of gravity of each cluster in the order of clusters inferred from the Monocle 3 results.
 
 
 ``` R:SPATA.r
@@ -150,16 +150,16 @@ filePath <- paste0("./Spatial_Trajectory", project,"_", Tname ,".pdf")
 ggsave(file = filePath, plot = p, dpi=100, width=8, height=8)
 ```
 
-Result of trajetory line.
+Results of trajetory paths.
 
 <div align="center">
 <img src="./fig/SPATA2_trajectory.png" width="50%" >
 </div>
 
 
-A custom function is then used to visualise the variation in each PAGE annotation score in the Trajetory pathway calculated by SPTAT and to explore the position in space where each factor's score changes.
+A custom function is then used to visualize the variation in each PAGE annotation score in the trajetory path calculated by SPATA and to explore the position in space where each factor's score changes.
 
-Parameters for custom functions are explained later.
+Parameters for custom functions are explained below.
 
 ``` R:SPATA.r
 slope_min <- 0.04
@@ -176,7 +176,7 @@ Make_SCCR(
         )
 ```
 
-Example: longer Trajectory PATH.
+Example: longer trajectory PATH.
 
 ``` R:SPATA.r
 Tname <-"Px" # Trajectory Name 
@@ -205,7 +205,7 @@ spata_obj <- createTrajectoryManually(
             )
 ```
 
-## 4.About Custom function Parameters
+## 4. About custom function parameters
 
 Make_SCCR( spata_obj,PAGE_inf,project,trajectory_name,slope_min,region_lengthPct ,
 span =0.2 ,overlap = 5 , pw= 8,ph= 8,region_length = NULL,Annotation = NULL)
@@ -229,7 +229,7 @@ span =0.2 ,overlap = 5 , pw= 8,ph= 8,region_length = NULL,Annotation = NULL)
 
 
 
-## 5.Output file
+## 5. Output file
 
 ### Plot
 
