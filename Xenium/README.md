@@ -1,4 +1,4 @@
-# Analysis of Xenium data
+# Xenium Analysis
 
 ## Requirements
 R (>=4.0; tested with 4.2.1)
