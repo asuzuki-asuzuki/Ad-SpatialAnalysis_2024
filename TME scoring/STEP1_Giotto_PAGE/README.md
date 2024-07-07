@@ -6,7 +6,7 @@
 
 The following R packages are required for this STEP: Note that Giotto only works with v1.x.x.
 
-1. giotto (version 1)
+1. Giotto (v1)
 2. patchwork
 3. ggplot2
 
