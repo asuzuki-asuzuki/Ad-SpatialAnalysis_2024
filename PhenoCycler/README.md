@@ -10,7 +10,7 @@ The following R packages are required.
 
 ## Analysis
 ### Cell segmentation
-1. A QPTIFF file (output file of PhenoCycler) is open by v (version 0.3.2).
+1. A QPTIFF file (output file of PhenoCycler) is open by QuPath (version 0.3.2).
 2. Regions are selected for tissue annotation.
 3. Cell segmentation is performed using StarDist (QuPath StarDist extension, version 0.3.2) based on the DAPI signal (channel 0). The pixel size is set to 0.37 μm and the size of nucleus expansion is set to 5 µm. The script and model (stardist_cell_seg_model.pb) are provided by Akoya BioSciences.
 4. After cell segmentation, mean pixel intensities for each marker (Cell: Mean) are exported as signal intensities in the CSV format.
