@@ -1,6 +1,6 @@
-# Title
+# Evaluation of TME changes for AIS/MIA cases
 
-## 1.required package
+## 1. Required packages
 1. tidyverse
 2. Seurat (v4)
 3. ggplot2
@@ -12,14 +12,14 @@
 9. sf
 
 
-## 2.Input file
+## 2. Input files
 
-1. clustered Seurat OBJ.(like STEP2 or other)
-2. PAGE score matix file (output of STEP1).
+1. Seurat obj (from STEP 2 or others)
+2. PAGE score matix file (output of STEP 1).
 
-## 3.Analysis code
+## 3. Analysis code
 
-load packages.
+Load packages.
 
 ``` R:PMregion_detection.r
 library(dplyr)
@@ -35,13 +35,13 @@ set.seed(1234)
 
 ```
 
-load custom functions.
+Load custom functions.
 
 ``` R:PMregion_detection.r
 source("Function_plotModule.r")
 ```
 
-load Seurat OBJ and result of STEP1 PAGE analysis.
+Load Seurat obj and results of STEP 1 PAGE analysis.
 
 ``` R:PMregion_detection.r
 Sample <- "test"
@@ -71,7 +71,7 @@ col_names        <- typeCol$col
 names(col_names) <- typeCol$CellType
 ```
 
-Check the distribution of pixel distances between SPOTs.
+Check the distribution of pixel distances between spots.
 
 ``` R:PMregion_detection.r
 forCheckSpotDist <- frNN(x= mat.dt[,c("x","y")], eps =2000)
@@ -92,7 +92,7 @@ tmp_eps <- 134 # 要確認
 cate_num <- length( names(col_names))
 ```
 
-As the radius is extended, the cumulative values are calculated by weighting the surrounding TMEscore by distance.
+As the radius is extended, the cumulative values are calculated by weighting the surrounding TME score by distance.
 However, it is the aggregate value at the largest radius that is used in the analysis.
 
 ``` R:PMregion_detection.r
@@ -121,14 +121,14 @@ nnCounts_list <- nnCounts_list %>%
 
 ```
 
-Extract the spots whose Enrichment score exceeds the threshold value.
-The threshold is set at 70% of the spots with the highest score (weight=0.7).
-However, the lower limit is set to 10 (lowlim=10).
+Extract the spots whose enrichment score exceeds the threshold value.
+The threshold is set at 70% of the spots with the highest score (weight = 0.7).
+However, the lower limit is set to 10 (lowlim = 10).
 
 Calculate for "Proliferative".
 
 ``` R:PMregion_detection.r
-weight= 0.7
+weight = 0.7
 lowlim = 10
 ```
 
@@ -162,7 +162,7 @@ Aggressive_plot_res <- makeRegionPlot(
 
 ```
 
-Visualisation of the distribution of Enrichment scores and the SPOTs that have passed the filter.
+Visualization of the distribution of enrichment scores and the spots that have passed the filter.
 
 <div align="center">
 <img src="./fig/Sub_DensityScorePlot_Proliferative.PNG" width="80%" >
@@ -289,7 +289,7 @@ Split_Res2<-PlotSplitRegion(
 </div>
 
 
-## 4.About Custom function Parameters
+## 4. About custom function parameters
 
 ### RegionScore
 ``` R:p.r
@@ -374,7 +374,7 @@ PlotSplitRegion <-function(
 - col_names &ensp;->&ensp; TME subtype list.  
 
 
-## 5.Output file
+## 5. Output files
 
 ### Plot
 - PopulationPlot_Aggressive_\${NAME}.pdf  
