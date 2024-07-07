@@ -3,5 +3,5 @@ In this study, we performed spatial omics analysis of lung adenocarcinoma to elu
 
 - [Visium](./Visium): Spatial transcriptome sequencing (Visium). 
 - [Xenium](./Xenium): In situ expression profiling (Xenium).
-- [PhenoCycler](./Spatial): Multiprelxed immunostaining (PhenoCycler).
+- [PhenoCycler](./PhenoCycler): Multiprelxed immunostaining (PhenoCycler).
 - [TME scoring](./TME_scoring): Tumor microenvironment (TME) scoring using Visium data.
