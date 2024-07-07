@@ -2,7 +2,7 @@
 
 ## Evaluation of TME changes for IA cases
 
- - STEP1. Giotto PAGE scoring
+ - [STEP 1](./STEP1_Giotto_PAGE). Giotto PAGE scoring
  - STEP2. Seurat Clustering and Mocnole
  - STEP3-1. Representation of TME landscape
 
