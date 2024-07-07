@@ -1,13 +1,13 @@
-# STEP2 Clustering by Seurat & Trajectory analysis by Monocle3.
+# STEP2 Clustering analysis by Seurat & trajectory analysis by Monocle3.
 
-## 1.required package
+## 1. Required package
 
 1. Seurat (v4)
 2. monocle3 (v1)
 3. ggplot2
 4. patchwork
 5. dplyr
-6. SeuratWrappers(github-tag:"79fe900")
+6. SeuratWrappers (github-tag:"79fe900")
 7. magrittr
 
 ### ・Example of old packeges intstall
@@ -18,11 +18,11 @@ remotes::install_github('satijalab/seurat-wrappers' , ref = "79fe900")
 devtools::install_github('cole-trapnell-lab/monocle3',tag="1.0.0")
 ```
 
-## 2.Input file
+## 2. Input file
 
-## 3.Analysis code
+## 3. Analysis code
 
-load library.
+Load library.
 
 ``` R:Seurat_Moncole.R
 library(Seurat)
