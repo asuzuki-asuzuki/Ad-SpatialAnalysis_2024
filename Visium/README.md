@@ -7,7 +7,7 @@ The following R packages are required.
 1. Seurat (v4)
 2. hdf5r (for loding HDF5 files)
 
-## Analytical codes
+## Analysis
 ### Basic analysis of Visium data  
 - [Visium_Seurat.R](./Visium_Seurat.R): basic analysis (dimentional reduction, clustering, etc.) by Seurat (Seurat 4.0.0 for IA, Seurat 4.3.0 for AIS/MIA).
 
