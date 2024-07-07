@@ -1,4 +1,4 @@
-# Giotto scoring and annotation
+# STEP 1. Giotto scoring and annotation
 
 　This step for PAGE scoring and annotation for each spot
 
