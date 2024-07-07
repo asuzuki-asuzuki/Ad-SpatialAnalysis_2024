@@ -9,6 +9,10 @@ The following R packages are required.
 
 ## Analysis
 ### Basic analysis of Visium data  
-- [Visium_Seurat.R](./Visium_Seurat.R): basic analysis (dimentional reduction, clustering, etc.) by Seurat (Seurat 4.0.0 for IA, Seurat 4.3.0 for AIS/MIA).
+- [Visium_Seurat.R](./Visium_Seurat.R): basic analysis (dimentional reduction, clustering, etc.) by Seurat.
 
-### Integration of the data from serial sections 
+### Merging the data of multiple serial sections 
+- [FFPE_Merge_Seurat.R](./FFPE_Merge_Seurat.R): merging multiple Visium data by Seurat.
+
+### Analysis of ligand-receptor interaction
+Under preparation
