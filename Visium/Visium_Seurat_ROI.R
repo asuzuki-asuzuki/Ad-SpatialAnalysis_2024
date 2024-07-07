@@ -1,4 +1,4 @@
-library(Seurat)
+library(Seurat) # v4.3.0
 library(ggplot2)
 library(patchwork)
 library(dplyr)
