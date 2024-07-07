@@ -1,0 +1,11 @@
+CellType	col
+Well_Differentiated	"#FFFF00"
+Proliferative	"#ff7f0e"
+Invasive	"#d62728"
+Immune	"#e377c2"
+T_cell	"#1f77b4"
+B_cell	"#9467bd"
+M1_Macrophages	"#00ff00"
+M2_Macrophages	"#008000"
+Fibroblast_CAF	"#808080"
+Endothelial_cells	"#8b4513"
