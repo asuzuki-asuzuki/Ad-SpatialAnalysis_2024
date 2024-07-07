@@ -8,7 +8,7 @@ set.seed(1234)
 # Please input the output directory from Space Ranger
 lung <- Load10X_Spatial(data.dir = "<INPUT>")
 
-# number of splots
+# number of spots
 ncol(lung@assays$Spatial@counts)
 #lung <- subset(lung, subset = nFeature_Spatial > 0)
 #ncol(lung@assays$Spatial@counts)
