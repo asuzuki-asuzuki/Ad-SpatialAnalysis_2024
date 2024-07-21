@@ -1,8 +1,8 @@
 # Visium analysis
 
 ## Requirements
-R (>=4.0; tested with 4.0.2 and 4.2.1)
-Python (3.7 or later)
+R (>=4.0; tested with 4.0.2 and 4.2.1)  
+Python (3.7 or later)  
 
 The following R packages are required.
 1. Seurat (v4)
