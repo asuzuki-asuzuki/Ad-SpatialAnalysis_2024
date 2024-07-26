@@ -5,3 +5,5 @@ In this study, we performed spatial omics analysis of lung adenocarcinoma to elu
 - [Xenium](./Xenium): In situ expression profiling (Xenium).
 - [PhenoCycler](./PhenoCycler): Multiprelxed immunostaining (PhenoCycler).
 - [TME scoring](./TME_scoring): Tumor microenvironment (TME) scoring using Visium data.
+  
+The processed data for these analyses is stored in the database DBKERO (https://kero.hgc.jp/) and made freely available on the project’s webpage (https://kero.hgc.jp/Ad-SpatialAnalysis_2024.html).
