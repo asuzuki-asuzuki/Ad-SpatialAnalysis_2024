@@ -8,6 +8,9 @@
 The following R packages are required.
 1. Seurat (v5.1.0)
 
+It generally takes only several tens of minutes for installlation of these tools and packages.  
+For conducting analyses, it usually takes short time (up to several hours). Memory requirements depend on the data size.
+
 ## Analysis
 ### Cell segmentation
 1. A QPTIFF file (output file of PhenoCycler) is open by QuPath (version 0.3.2).
