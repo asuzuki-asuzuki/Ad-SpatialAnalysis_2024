@@ -7,3 +7,7 @@ In this study, we performed spatial omics analysis of lung adenocarcinoma to elu
 - [TME scoring](./TME_scoring): Tumor microenvironment (TME) scoring using Visium data.
   
 The processed data for these analyses is stored in the database DBKERO (https://kero.hgc.jp/) and made freely available on the project’s webpage (https://kero.hgc.jp/Ad-SpatialAnalysis_2024.html).
+
+## Citation
+Takano Y et al. *Nature Communications* 2024 15:10637. doi: 10.1038/s41467-024-54671-7.  
+Spatially resolved gene expression profiling of tumor microenvironment reveals key steps of lung adenocarcinoma development.
